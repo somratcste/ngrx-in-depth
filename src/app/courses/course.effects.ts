@@ -13,7 +13,7 @@ export class CourseEfects {
     @Effect()
     loadCourse$ = this.actions$
     .pipe(
-        ofType<CourseRequested>(CourseActionTypes.courseRequested),
+        ofType<CourseRequested>(CourseActionTypes.CourseRequested),
         mergeMap(action => this.coursesService.findCourseById(action.payload.courseId)),
         map(course => new CourseLoaded({course})),
     );
