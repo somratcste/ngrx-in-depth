@@ -42,7 +42,7 @@ function authReducer(state: AuthState = initialAuthState, action): AuthState {
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  auth: authReducer
+  auth: authReducer,
 };
 
 

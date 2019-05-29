@@ -17,12 +17,10 @@ import {AuthModule} from "./auth/auth.module";
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import {RouterStateSerializer, StoreRouterConnectingModule} from "@ngrx/router-store";
 
 import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from './reducers';
-import { AuthGuard } from './auth/auth.guard';
-import { AuthEffects } from './auth/auth.effects';
+import {AuthGuard} from './auth/auth.guard';
 
 
 const routes: Routes = [
@@ -47,19 +45,18 @@ const routes: Routes = [
         BrowserAnimationsModule,
         RouterModule.forRoot(routes),
         HttpClientModule,
-        MatMenuModule, 
+        MatMenuModule,
         MatIconModule,
         MatSidenavModule,
         MatListModule,
         MatToolbarModule,
         AuthModule.forRoot(),
-        
         StoreModule.forRoot(reducers, { metaReducers }),
         !environment.production ? StoreDevtoolsModule.instrument() : [],
         EffectsModule.forRoot([]),
     ],
     providers: [],
-    bootstrap: [AppComponent]    
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
