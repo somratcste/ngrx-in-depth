@@ -5,6 +5,7 @@ import { AppState } from './reducers';
 import { Logout } from './auth/auth.actions';
 import { map } from 'rxjs/operators';
 import {isLoggedIn, isLoggedOut} from './auth/auth.selectors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent implements OnInit {
 
 
 
-    constructor(private store: Store<AppState>) {
+    constructor(private store: Store<AppState>,
+      private router: Router) {
 
     }
 
@@ -35,6 +37,7 @@ export class AppComponent implements OnInit {
 
     logout() {
       this.store.dispatch(new Logout());
+      this.router.navigateByUrl('/login');
     }
 
 
