@@ -16,7 +16,7 @@ export class CoursesService {
     }
 
     findCourseById(courseId: number): Observable<Course> {
-        return this.http.get<Course>(`/api/courses/${courseId}`);
+        return this.http.get<Course>('/api/courses/${courseId}');
     }
 
     findAllCourses(): Observable<Course[]> {
